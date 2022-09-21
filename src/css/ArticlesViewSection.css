@@ -1,0 +1,20 @@
+/***** Article List Section *****/
+
+.tag-add-input-active{
+    padding: 5px 10px;
+    background-color: #F8F8F8;
+    border-radius: 5px;
+    border: solid 1px #EEEEEE;
+    height: 30px;
+    margin: 10px 0px;
+}
+.add-tag-close-icon{
+    bottom: 17px;
+    right: 20px;
+}
+.source-popover-show{
+    display: none;
+}
+.source-show-trigger:hover .source-popover-show{
+    display: block;
+}
