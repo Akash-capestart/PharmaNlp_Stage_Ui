@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAppSelector } from "../../redux/Hooks";
 import { MoveToFolderModal } from "./MoveToFolderModal";
+import { MoveToFolderModal2 } from "./MoveToNewFolderModel";
 import { DropDown } from "../common/DropDown";
 import { Button } from "../common/Button";
 
@@ -32,12 +33,36 @@ export function ArticleViewButtonSection({
       moveToFolderModalShow: false,
     });
 
+
+
+const [articleViewButtonSectionState2, setarticleViewButtonSectionState2] =
+useState<ArticleViewButtonSectionState>({
+  activeDropDownVal: dropDownValues[0],
+  moveToFolderModalShow: false,
+});
+
+
+
   const moveToFolderModalShowHandler = () => {
     setarticleViewButtonSectionState((prevVal) => ({
       ...prevVal,
       moveToFolderModalShow: !prevVal["moveToFolderModalShow"],
     }));
   };
+
+
+
+
+const moveToFolderModalShowHandler2 = () => {
+  setarticleViewButtonSectionState2((prevVal) => ({
+    ...prevVal,
+    moveToFolderModalShow: !prevVal["moveToFolderModalShow"],
+  }));
+};
+
+
+
+
 
   const dropDownValueHandler = (val : string) => {
     setarticleViewButtonSectionState({
@@ -96,6 +121,26 @@ export function ArticleViewButtonSection({
           hasMarginLeft={true}
           textCenter={false}
         />
+
+
+<Button
+          hasExtraPad={false}
+          text={"New Move To Folder"}
+          upperCaseText={false}
+          btnHasRadius={true}
+          btnHasImg={true}
+          btnClickHandler={moveToFolderModalShowHandler2}
+          fontSize={lowFont}
+          imgUrl={"./images/folder-image.png"}
+          loadingCase={false}
+          isLoading={false}
+          hasMarginLeft={true}
+          textCenter={false}
+        />
+ {articleViewButtonSectionState2["moveToFolderModalShow"] && (
+          <MoveToFolderModal2 closeModalHandler={moveToFolderModalShowHandler2} />
+        )}
+
       </div>
       <div className="d-flex align-items-center justify-content-between">
         <span
